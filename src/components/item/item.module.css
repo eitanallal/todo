@@ -1,0 +1,48 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0rem;
+  text-align: center;
+}
+
+.smallRectangle {
+  width: 400px;
+  height: 250px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  color: black;
+  font-size: 26px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.title {
+  font-size: 3rem;
+  margin: 10px;
+}
+
+.plainText {
+  font-size: 2rem;
+  margin: 10px;
+}
+
+.tickButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: grey; /* Change the color as needed */
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}

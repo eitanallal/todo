@@ -1,0 +1,31 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0rem;
+  text-align: center;
+}
+
+.bigRectangle {
+  width: 35rem;
+  background-color: rgb(255, 196, 159);
+  border-radius: 10px;
+  margin: 20px;
+  color: black;
+  font-size: 24px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.title {
+  font-size: 3rem;
+  margin: 10px;
+}
+
+.plainText {
+  font-size: 2rem;
+  margin: 10px;
+}
