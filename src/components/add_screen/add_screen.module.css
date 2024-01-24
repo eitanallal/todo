@@ -5,10 +5,8 @@
   text-align: center;
 }
 
-.bigRectangle {
+.addWindow {
   width: 35rem;
-  max-height: 70rem;
-  position: relative;
   background-color: rgb(255, 196, 159);
   border-radius: 10px;
   margin: 20px;
@@ -22,20 +20,9 @@
   align-content: flex-start;
 }
 
-.smallRectangleContainer {
-  overflow-y: auto;
-  max-height: 55rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  align-content: flex-start;
-}
-
 .title {
   font-size: 3rem;
-  position: sticky;
   margin: 10px;
-  z-index: 1;
 }
 
 .plainText {

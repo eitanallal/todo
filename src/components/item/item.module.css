@@ -19,18 +19,21 @@
   align-items: center;
   flex-wrap: wrap;
   align-content: center;
-  flex-direction: column;
+  /* flex-direction: column; */
   position: relative;
 }
 
 .title {
   font-size: 3rem;
   margin: 10px;
+  display: flex;
+  text-align: center;
 }
 
 .plainText {
   font-size: 2rem;
   margin: 10px;
+  text-align: center;
 }
 
 .tickButton {
