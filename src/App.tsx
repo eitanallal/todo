@@ -1,40 +1,45 @@
 import { useState } from "react";
 import styles from "./App.module.css";
 import { Category } from "./components/category/category";
-// import { Add_screen } from "./components/add_screen/add_screen";
-import { ItemType } from "./types/item";
+// import { AddScreen } from "./components/add_screen/add_screen"; //to be used in the future
+import { ItemType } from "./types/item.type";
+import { PlusCircle } from "lucide-react";
 
 const App: React.FC = () => {
+  // const [addingMenu, setAddingMenu] = useState<boolean>(false);
   const [nextToDoId, setNextToDoId] = useState<number>(3);
   const [nextDoneId, setNextDoneId] = useState<number>(0);
 
   const [toDo, setToDo] = useState<ItemType[]>([
-    { itemId: 0, title: "Title 0", description: "Description todo 0" },
-    { itemId: 1, title: "Title 1", description: "Description todo 1" },
-    { itemId: 2, title: "Title 2", description: "Description todo 2" },
+    { id: 0, title: "Title 0", description: "Description todo 0" },
+    { id: 1, title: "Title 1", description: "Description todo 1" },
+    {
+      id: 2,
+      title: "Title 2",
+      description:
+        "Description todo 2 (adding some text here just for fun hahah)",
+    }, //just an example, to be removed in the future
   ]);
-  const [done, setDone] = useState<ItemType[]>([
-    // { itemId: 0, title: "Title 0", description: "Description done 0" },
-    // { itemId: 1, title: "Title 1", description: "Description done 1" },
-  ]);
+  const [done, setDone] = useState<ItemType[]>([]);
 
   const handleAddItemToDo = (newTitle: string, newDescription: string) => {
     setToDo([
       ...toDo,
       {
-        itemId: nextToDoId,
+        id: nextToDoId,
         title: newTitle,
         description: newDescription,
       },
     ]);
     setNextToDoId(nextToDoId + 1);
+    // setAddingMenu(false);
   };
 
   const handleAddItemDone = (newTitle: string, newDescription: string) => {
     setDone([
       ...done,
       {
-        itemId: nextDoneId,
+        id: nextDoneId,
         title: newTitle,
         description: newDescription,
       },
@@ -47,35 +52,37 @@ const App: React.FC = () => {
   console.log(`NextDoneId: ${nextDoneId}`);
 
   const handleDeleteItemToDo = (itemId: number) => {
-    setToDo(toDo.filter((i) => i.itemId !== itemId));
+    setToDo(toDo.filter((i) => i.id !== itemId));
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleDeleteItemDone = (itemId: number) => {
-    setDone(done.filter((i) => i.itemId !== itemId));
+    setDone(done.filter((i) => i.id !== itemId));
   };
+
+  // const handleAddingMenu = () => {
+  //   // setAddingMenu(true);
+  // };
 
   return (
     <>
       <div className={styles.disp}>
+        {/* <div className={styles.addMenu}></div> */}
         <Category
           categoryTitle="TODO"
           categoryData={toDo}
           onAddItemDone={handleAddItemDone}
-          onDeleteItemToDo={handleDeleteItemToDo}
-          onDeleteItemDone={handleDeleteItemDone}
+          onDeleteItem={handleDeleteItemToDo}
         ></Category>
 
         <Category
           categoryTitle="DONE"
           categoryData={done}
           onAddItemDone={handleAddItemDone}
-          onDeleteItemToDo={handleDeleteItemToDo}
-          onDeleteItemDone={handleDeleteItemDone}
+          onDeleteItem={handleDeleteItemDone}
         ></Category>
 
         <button
-          className={styles.circularButton}
+          className={styles.circularButton} // modal
           onClick={() =>
             handleAddItemToDo(
               "NEW TITLE",
@@ -83,7 +90,7 @@ const App: React.FC = () => {
             )
           }
         >
-          <span className={styles.plusIcon}>+</span>
+          <PlusCircle color="green" size={40} />
         </button>
       </div>
     </>

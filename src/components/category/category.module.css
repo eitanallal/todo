@@ -1,44 +1,28 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0rem;
-  text-align: center;
-}
-
 .bigRectangle {
-  width: 35rem;
-  max-height: 70rem;
+  width: 35vi;
+  height: 95vh;
   position: relative;
   background-color: rgb(255, 196, 159);
-  border-radius: 10px;
-  margin: 20px;
+  border-radius: 1vi;
+  margin: 2vi;
   color: black;
   font-size: 24px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
-  align-content: flex-start;
+  flex-wrap: nowrap;
+  align-content: center;
+  flex-direction: column;
 }
 
 .smallRectangleContainer {
   overflow-y: auto;
-  max-height: 55rem;
+  overflow-x: hidden;
+  height: 95%;
+  width: 95%;
   display: flex;
   align-items: center;
   flex-direction: column;
   align-content: flex-start;
-}
-
-.title {
-  font-size: 3rem;
-  position: sticky;
-  margin: 10px;
-  z-index: 1;
-}
-
-.plainText {
-  font-size: 2rem;
-  margin: 10px;
 }
