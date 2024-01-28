@@ -1,15 +1,9 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0rem;
-  text-align: center;
-}
-
 .addWindow {
   width: 35rem;
+  height: 35rem;
   background-color: rgb(255, 196, 159);
-  border-radius: 1rem;
-  margin: 20px;
+  /* border-radius: 1rem; */
+  /* margin: 20px; */
   color: black;
   font-size: 24px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;

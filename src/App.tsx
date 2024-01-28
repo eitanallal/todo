@@ -1,12 +1,22 @@
+import Dialog from "@mui/material/Dialog";
 import { useState } from "react";
 import styles from "./App.module.css";
 import { Category } from "./components/category/category";
-// import { AddScreen } from "./components/add_screen/add_screen"; //to be used in the future
+import { AddScreen } from "./components/add-screen/add-screen"; //to be used in the future
 import { ItemType } from "./types/item.type";
 import { PlusCircle } from "lucide-react";
 
 const App: React.FC = () => {
-  // const [addingMenu, setAddingMenu] = useState<boolean>(false);
+  const [openAdding, setOpenAdding] = useState(false);
+  const handleOpenAdding = () => setOpenAdding(true);
+  const handleCloseAdding = (
+    title: string,
+    description: string,
+    write: boolean
+  ) => {
+    if (write) handleAddItemToDo(title, description);
+    setOpenAdding(false);
+  };
   const [nextToDoId, setNextToDoId] = useState<number>(3);
   const [nextDoneId, setNextDoneId] = useState<number>(0);
 
@@ -73,25 +83,24 @@ const App: React.FC = () => {
           onAddItemDone={handleAddItemDone}
           onDeleteItem={handleDeleteItemToDo}
         ></Category>
-
         <Category
           categoryTitle="DONE"
           categoryData={done}
           onAddItemDone={handleAddItemDone}
           onDeleteItem={handleDeleteItemDone}
         ></Category>
-
         <button
           className={styles.circularButton} // modal
-          onClick={() =>
-            handleAddItemToDo(
-              "NEW TITLE",
-              "item added by pressure on the green +"
-            )
-          }
+          onClick={handleOpenAdding}
         >
           <PlusCircle color="green" size={40} />
         </button>
+        <Dialog
+          open={openAdding}
+          onClose={() => handleCloseAdding("", "", false)}
+        >
+          <AddScreen handleCloseAdding={handleCloseAdding} />
+        </Dialog>{" "}
       </div>
     </>
   );
