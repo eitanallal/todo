@@ -1,25 +1,21 @@
-.addWindow {
-  width: 35rem;
-  height: 35rem;
-  background-color: rgb(255, 196, 159);
-  /* border-radius: 1rem; */
-  /* margin: 20px; */
-  color: black;
-  font-size: 24px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.twoButtons {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  align-content: flex-start;
 }
 
-.title {
-  font-size: 3rem;
-  margin: 10px;
+.button {
+  color: white;
+  width: 4rem;
+  font-size: 1rem;
+  text-align: center;
+  background-color: rgb(122, 79, 249);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 8%;
 }
 
-.plainText {
-  font-size: 2rem;
-  margin: 10px;
+.button:hover {
+  background: grey;
 }

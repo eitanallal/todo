@@ -16,9 +16,11 @@ export const Category: React.FC<CategoryProps> = ({
   onDeleteItem,
 }) => {
   return (
-    <div className={styles.bigRectangle}>
-      <h1>{categoryTitle}</h1>
-      <div className={styles.smallRectangleContainer}>
+    <div className={styles.CategoryBox}>
+      <div className={styles.categoryTitleBox}>
+        <div className={styles.categoryTitle}>{categoryTitle}</div>
+      </div>
+      <div className={styles.ItemBoxContainer}>
         {categoryData.map((item) => (
           <Item
             key={item.id}

@@ -18,23 +18,27 @@ export const Item: React.FC<ItemProps> = ({
   onDeleteItem,
 }) => {
   const handleButtonClick = (item: ItemType, category: string) => {
-    onDeleteItem(item.id);
-    if (category === "TODO") {
+    if (category === "To-Do") {
       onAddItemDone(item.title, item.description);
+      console.log("Adding to the done column");
     }
+    onDeleteItem(item.id);
   };
   return (
     <>
-      <div className={styles.smallRectangle}>
+      <div className={styles.ItemBox}>
         <button
           className={styles.tickButton}
           onClick={() => handleButtonClick(item, category)}
         >
-          <CheckCircle2 color="grey" size={22} />
+          <div className={styles.circleTick}>
+            <CheckCircle2 color="grey" size={22} />
+          </div>
         </button>
-
-        <div className={styles.title}>{item.title}</div>
-        <div className={styles.plainText}>{item.description}</div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className={styles.title}>{item.title}</div>
+          <div className={styles.plainText}>{item.description}</div>
+        </div>
       </div>
     </>
   );

@@ -4,7 +4,8 @@ import styles from "./App.module.css";
 import { Category } from "./components/category/category";
 import { AddScreen } from "./components/add-screen/add-screen"; //to be used in the future
 import { ItemType } from "./types/item.type";
-import { PlusCircle } from "lucide-react";
+// import { PlusCircle } from "lucide-react";
+import AddIcon from "@mui/icons-material/Add";
 
 const App: React.FC = () => {
   const [openAdding, setOpenAdding] = useState(false);
@@ -78,13 +79,13 @@ const App: React.FC = () => {
       <div className={styles.disp}>
         {/* <div className={styles.addMenu}></div> */}
         <Category
-          categoryTitle="TODO"
+          categoryTitle="To-Do"
           categoryData={toDo}
           onAddItemDone={handleAddItemDone}
           onDeleteItem={handleDeleteItemToDo}
         ></Category>
         <Category
-          categoryTitle="DONE"
+          categoryTitle="Done"
           categoryData={done}
           onAddItemDone={handleAddItemDone}
           onDeleteItem={handleDeleteItemDone}
@@ -93,11 +94,20 @@ const App: React.FC = () => {
           className={styles.circularButton} // modal
           onClick={handleOpenAdding}
         >
-          <PlusCircle color="green" size={40} />
+          <AddIcon
+            sx={{
+              color: "white",
+              backgroundColor: "transparent",
+              fontSize: "3vi",
+              maxHeight: "5vh",
+              maxWidth: "5vh",
+            }}
+          />
         </button>
         <Dialog
           open={openAdding}
           onClose={() => handleCloseAdding("", "", false)}
+          // style={{ minWidth: "40rem" }}
         >
           <AddScreen handleCloseAdding={handleCloseAdding} />
         </Dialog>{" "}

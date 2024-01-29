@@ -1,12 +1,10 @@
 import { useState } from "react";
-// import styles from "./add-screen.module.css";
+import styles from "./add-screen.module.css";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-// import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { fontSize } from "@mui/system";
 
 interface AddScreenProps {
   handleCloseAdding: (
@@ -21,20 +19,33 @@ export const AddScreen: React.FC<AddScreenProps> = ({ handleCloseAdding }) => {
   const [description, setDescription] = useState("");
 
   return (
-    <div style={{ height: "50rem", width: "50rem" }}>
-      {/* <div className={styles.addWindow}>Hello</div> */}
-
-      <DialogTitle style={{ textAlign: "center", fontSize: "44px" }}>
-        Add a Task
+    <div
+      style={{
+        height: "20rem",
+        width: "25em",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <DialogTitle
+        style={{
+          textAlign: "center",
+          fontSize: "40px",
+          marginBottom: "1rem",
+        }}
+      >
+        Add Task
       </DialogTitle>
-      <DialogContent style={{ display: "flex", flexDirection: "column" }}>
+      <DialogContent
+        style={{ display: "flex", flexDirection: "column", width: "60%" }}
+      >
         <TextField
           id="title"
-          label="Title"
+          label="Name"
           variant="standard"
           value={title}
-          inputProps={{ style: { fontSize: 40 } }}
-          InputLabelProps={{ style: { fontSize: 40 } }} // font size of input label
+          inputProps={{ style: { fontSize: 20 } }}
+          InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
           onChange={(e) => setTitle(e.target.value)}
         />
         <TextField
@@ -42,22 +53,24 @@ export const AddScreen: React.FC<AddScreenProps> = ({ handleCloseAdding }) => {
           label="Description"
           variant="standard"
           value={description}
-          inputProps={{ style: { fontSize: 40 } }}
-          InputLabelProps={{ style: { fontSize: 40 } }} // font size of input label
+          inputProps={{ style: { fontSize: 20 } }}
+          InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
           onChange={(e) => setDescription(e.target.value)}
         />
       </DialogContent>
 
-      <DialogActions>
-        {/* onClick={() => handleButtonClick(item, category)} */}
-        <Button onClick={() => handleCloseAdding("", "", false)}>Cancel</Button>
-
-        <Button
-          type="submit"
-          onClick={() => handleCloseAdding(title, description, true)}
-        >
-          Validate
-        </Button>
+      <DialogActions style={{ justifyContent: "center" }}>
+        <div className={styles.twoButtons}>
+          <Button
+            type="submit"
+            onClick={() => handleCloseAdding(title, description, true)}
+          >
+            <div className={styles.button}>Add</div>
+          </Button>
+          <Button onClick={() => handleCloseAdding("", "", false)}>
+            <div className={styles.button}>Close</div>
+          </Button>
+        </div>
       </DialogActions>
     </div>
   );
