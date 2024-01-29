@@ -10,7 +10,7 @@ interface AddScreenProps {
   handleCloseAdding: (
     title: string,
     description: string,
-    write: boolean
+    switchFromToDoToDone: boolean
   ) => void;
 }
 
@@ -45,7 +45,7 @@ export const AddScreen: React.FC<AddScreenProps> = ({ handleCloseAdding }) => {
           variant="standard"
           value={title}
           inputProps={{ style: { fontSize: 20 } }}
-          InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
+          InputLabelProps={{ style: { fontSize: 20 } }}
           onChange={(e) => setTitle(e.target.value)}
         />
         <TextField
@@ -54,7 +54,7 @@ export const AddScreen: React.FC<AddScreenProps> = ({ handleCloseAdding }) => {
           variant="standard"
           value={description}
           inputProps={{ style: { fontSize: 20 } }}
-          InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
+          InputLabelProps={{ style: { fontSize: 20 } }} //
           onChange={(e) => setDescription(e.target.value)}
         />
       </DialogContent>

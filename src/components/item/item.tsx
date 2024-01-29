@@ -18,7 +18,6 @@ export const Item: React.FC<ItemProps> = ({
   const handleButtonClick = (item: ItemType, category: string) => {
     if (category === "To-Do") {
       onAddItemDone(item.title, item.description);
-      console.log("Adding to the done column");
     }
     onDeleteItem(item.id);
   };
@@ -30,7 +29,7 @@ export const Item: React.FC<ItemProps> = ({
           onClick={() => handleButtonClick(item, category)}
         >
           <div>
-            {category === "To-Do" ? (
+            {category === "To-Do" && (
               <div className={styles.circleTick}>
                 <CheckCircleOutlineIcon
                   sx={{
@@ -40,8 +39,6 @@ export const Item: React.FC<ItemProps> = ({
                   }}
                 />
               </div>
-            ) : (
-              <div />
             )}
           </div>
         </button>
