@@ -1,8 +1,6 @@
-// import { useState, useEffect } from "react";
 import styles from "./item.module.css";
-import { CheckCircle2 } from "lucide-react";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { ItemType } from "../../types/item.type";
-// import { App } from "../../App";
 
 interface ItemProps {
   item: ItemType;
@@ -31,8 +29,20 @@ export const Item: React.FC<ItemProps> = ({
           className={styles.tickButton}
           onClick={() => handleButtonClick(item, category)}
         >
-          <div className={styles.circleTick}>
-            <CheckCircle2 color="grey" size={22} />
+          <div>
+            {category === "To-Do" ? (
+              <div className={styles.circleTick}>
+                <CheckCircleOutlineIcon
+                  sx={{
+                    color: "grey",
+                    backgroundColor: "transparent",
+                    fontSize: "22",
+                  }}
+                />
+              </div>
+            ) : (
+              <div />
+            )}
           </div>
         </button>
         <div style={{ display: "flex", flexDirection: "column" }}>

@@ -16,12 +16,10 @@
   position: fixed;
   bottom: 1vi;
   left: 1vi;
-  width: 3vi;
-  height: 3vi;
-  max-height: 5vh;
-  max-width: 5vh;
+  width: 3.5vi;
+  height: 3.5vi;
   background-color: rgb(111, 233, 154);
-  border: 2px solid rgb(47, 216, 101);
+  border: 0.2vi solid rgb(47, 216, 101);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -47,9 +45,3 @@
   border-radius: 10px;
   display: flex;
 }
-
-/* 
-px pixel
-em or rem = ratio on screen size
-%
- */
