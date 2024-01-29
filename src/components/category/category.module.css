@@ -36,6 +36,7 @@
 .categoryTitle {
   color: rgb(38, 19, 150);
   font-size: 1.5rem;
+  font-weight: bold;
   line-height: 1.1;
   text-align: center;
   display: flex;
